@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'angular-jest-sample';
+  entities = [
+    { id: 1, name: 'Netanel Basal', isAdmin: true },
+    { id: 2, name: 'John Due', isAdmin: false },
+  ]
 }
