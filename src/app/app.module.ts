@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ViewModeDirective } from './directives/view-mode.directive';
 import { EditModeDirective } from './directives/edit-mode.directive';
+import { EditableComponent } from './components/editable/editable.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ViewModeDirective,
-    EditModeDirective
+    EditModeDirective,
+    EditableComponent
   ],
   imports: [
     BrowserModule,
