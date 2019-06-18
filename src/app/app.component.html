@@ -5,9 +5,33 @@
     <th>Admin</th>
   </tr>
   <tr *ngFor="let entity of entities; index as index">
-     <td>{{ entity.name }}</td>
-     <td>{{ entity.isAdmin }}</td>
+    <td>
+      <app-editable (update)="updateField(index, 'name')">
+        <ng-template appViewMode>{{entity.name}}</ng-template>
+        <ng-template appEditMode>
+          <input [formControl]="getControl(index, 'name')">
+        </ng-template>
+      </app-editable>
+    </td>
+    <td>
+      <app-editable (update)="updateField(index, 'isAdmin')">
+        <ng-template appViewMode>{{entity.isAdmin}}</ng-template>
+        <ng-template appEditMode>
+          <input type="checkbox" [formControl]="getControl(index, 'isAdmin')">{{entity.isAdmin}}
+        </ng-template>
+      </app-editable>
+    </td>
   </tr>
 </table>
+<br>
 
+<code>
+  {{entities | json }}
+</code>
+
+<br>
+<br>
+
+<br>
+<code>{{controls.value | json }}</code>
 <!-- <router-outlet></router-outlet> -->

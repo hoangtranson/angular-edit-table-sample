@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, ContentChild, EventEmitter, ElementRef } from '@angular/core';
+import { Component, OnInit, Output, ContentChild, EventEmitter, ElementRef, OnDestroy } from '@angular/core';
 import { ViewModeDirective } from 'src/app/directives/view-mode.directive';
 import { EditModeDirective } from 'src/app/directives/edit-mode.directive';
 
@@ -10,7 +10,7 @@ import { switchMap, takeUntil, filter, take, switchMapTo } from 'rxjs/operators'
   templateUrl: './editable.component.html',
   styleUrls: ['./editable.component.scss']
 })
-export class EditableComponent implements OnInit {
+export class EditableComponent implements OnInit, OnDestroy {
 
   @Output() update = new EventEmitter();
   @ContentChild(ViewModeDirective, {static: true}) viewModeTpl: ViewModeDirective;
@@ -61,6 +61,9 @@ export class EditableComponent implements OnInit {
   toViewMode() {
     this.update.next();
     this.mode = 'view';
+  }
+
+  ngOnDestroy() {
   }
 }
 
