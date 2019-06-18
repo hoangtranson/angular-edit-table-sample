@@ -3,10 +3,14 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ViewModeDirective } from './directives/view-mode.directive';
+import { EditModeDirective } from './directives/edit-mode.directive';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ViewModeDirective,
+    EditModeDirective
   ],
   imports: [
     BrowserModule,
